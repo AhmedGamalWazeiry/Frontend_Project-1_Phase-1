@@ -28,7 +28,6 @@ form.addEventListener(
 );
 
 mxql.addEventListener("change", () => {
-  console.log("1");
   show_OneItem(change, courses, textserach);
   change = !change;
 });
