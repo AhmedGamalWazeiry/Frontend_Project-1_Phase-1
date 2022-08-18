@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -114,14 +115,105 @@
           every month
         </p>
         <nav class="nav-courses">
-          <ul>
-            <li><a href="#" class="links-navcourse">Python</a></li>
-            <li><a href="#" class="links-navcourse">Excel</a></li>
-            <li><a href="#" class="links-navcourse">Web Development</a></li>
-            <li><a href="#" class="links-navcourse">JavaScript</a></li>
-            <li><a href="#" class="links-navcourse">Data Science</a></li>
-            <li><a href="#" class="links-navcourse">AWS Certification</a></li>
-            <li><a href="#" class="links-navcourse">Drawing</a></li>
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="pills-python-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-python"
+                type="button"
+                role="tab"
+                aria-controls="pills-python"
+                aria-selected="true"
+              >
+                Python
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-excel-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-excel"
+                type="button"
+                role="tab"
+                aria-controls="pills-excel"
+                aria-selected="false"
+              >
+                Excel
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-webdevelopment-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-webdevelopment"
+                type="button"
+                role="tab"
+                aria-controls="pills-webdevelopment"
+                aria-selected="false"
+              >
+                Web Development
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-javascript-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-javascript"
+                type="button"
+                role="tab"
+                aria-controls="pills-javascript"
+                aria-selected="false"
+              >
+                JavaScript
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-datascience-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-datascience"
+                type="button"
+                role="tab"
+                aria-controls="pills-datascience"
+                aria-selected="false"
+              >
+                Data Science
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-awscertification-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-awscertification"
+                type="button"
+                role="tab"
+                aria-controls="pills-awscertification"
+                aria-selected="false"
+              >
+                AWS Certification
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-drawing-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-drawing"
+                type="button"
+                role="tab"
+                aria-controls="pills-drawing"
+                aria-selected="false"
+              >
+                Drawing
+              </button>
+            </li>
           </ul>
           <div class="load-taps">
             <img src="images/Arrow-icon-taps.png" alt="Arrow" />
@@ -130,58 +222,571 @@
       </header>
 
       <section class="explore-courses">
-        <header class="courseexplore-header">
-          <h2>Expand your career opportunities with Python</h2>
-          <p>
-            Take one of Udemy’s range of Python courses and learn how to code
-            using this incredibly useful language. Its simple syntax and
-            readability makes Python perfect for Flask, Django, data science,
-            and machine learning. You’ll learn how to build everything from
-            games to sites to apps. Choose from a range of courses that will
-            appeal to...
-          </p>
-          <div class="explorepython-box">
-            <a href="#" class="link-explorepython"
-              ><span class="text-nav-body">Explore Python</span></a
-            >
-          </div>
-        </header>
-
         <div class="courses-box">
-          <div class="load-courses-up">
-            <img src="images/Arrow-icon-courses-up.png" alt="up arrow" />
-          </div>
+          <template id="course-temp">
+            <div class="course col">
+              <img />
+              <h4 class="title"></h4>
+              <p class="author"></p>
+              <div class="rating-box">
+                <span class="rating"></span>
+                <template id="full-star-temp">
+                  <i class="fa fa-star"></i
+                ></template>
+                <template id="half-star-temp">
+                  <i class="fa fa-star-half-empty"></i
+                ></template>
+                <template id="empty-star-temp">
+                  <i class="fa fa-star-o"></i
+                ></template>
+                <span class="people"></span>
+                <h4 class="price"></h4>
+              </div>
+            </div>
+          </template>
 
-          <div class="courses-list">
-            <template id="course-temp">
-              <div class="course">
-                <img />
-                <h4 class="title"></h4>
-                <p class="author"></p>
-                <div class="rating-box">
-                  <span class="rating"></span>
-                  <template id="full-star-temp">
-                    <i class="fa fa-star"></i
-                  ></template>
-                  <template id="half-star-temp">
-                    <i class="fa fa-star-half-empty"></i
-                  ></template>
-                  <template id="empty-star-temp">
-                    <i class="fa fa-star-o"></i
-                  ></template>
-                  <span class="people"></span>
-                  <h4 class="price"></h4>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-python"
+              role="tabpanel"
+              aria-labelledby="pills-python-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>Expand your career opportunities with Python</h2>
+                <p>
+                  Take one of Udemy’s range of Python courses and learn how to
+                  code using this incredibly useful language. Its simple syntax
+                  and readability makes Python perfect for Flask, Django, data
+                  science, and machine learning. You’ll learn how to build
+                  everything from games to sites to apps. Choose from a range of
+                  courses that will appeal to...
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body">Explore Python</span></a
+                  >
+                </div>
+              </header>
+
+              <div class="python">
+                <div
+                  id="slide-window"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div class="carousel-inner" id="carousel-python"></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </template>
-          </div>
+            </div>
 
-          <div class="load-courses-down">
-            <img src="images/Arrow-icon-courses-down.png" alt="down arrow" />
+            <div
+              class="tab-pane fade"
+              id="pills-excel"
+              role="tabpanel"
+              aria-labelledby="pills-excel-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>Analyze and visualize data with Excel</h2>
+                <p>
+                  Take a Microsoft Excel course from Udemy, and learn how to use
+                  this industry-standard software. Real-world experts will show
+                  you the basics like how to organize data into sheets, rows and
+                  columns, and advanced techniques like creating complex dynamic
+                  formulas. Both small businesses and large companies use Excel
+                  to...
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body">Explore Excel</span></a
+                  >
+                </div>
+              </header>
+              <div class="excel">
+                <div
+                  id="slide-window-excel"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div class="carousel-inner" id="carousel-excel"></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window-excel"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window-excel"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-webdevelopment"
+              role="tabpanel"
+              aria-labelledby="pills-webdevelopment-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>Build websites and applications with Web Development</h2>
+                <p>
+                  The world of web development is as wide as the internet
+                  itself. Much of our social and vocational lives play out on
+                  the internet, which prompts new industries aimed at creating,
+                  managing, and debugging the websites and applications that we
+                  increasingly rely on.
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body"
+                      >Explore Web Development</span
+                    ></a
+                  >
+                </div>
+              </header>
+              <div class="webdevelopment">
+                <div
+                  id="slide-window-webdevelopment"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div
+                    class="carousel-inner"
+                    id="carousel-webdevelopment"
+                  ></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window-webdevelopment"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window-webdevelopment"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-javascript"
+              role="tabpanel"
+              aria-labelledby="pills-javascript-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>Grow your software development skills with JavaScript</h2>
+                <p>
+                  JavaScript is a text-based computer programming language used
+                  to make dynamic web pages. A must-learn for aspiring web
+                  developers or programmers, JavaScript can be used for features
+                  like image carousels, displaying countdowns and timers, and
+                  playing media on a webpage. With JavaScript online classes,
+                  you can learn to build...
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body">Explore JavaScript</span></a
+                  >
+                </div>
+              </header>
+              <div class="javascript">
+                <div
+                  id="slide-window-javascript"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div class="carousel-inner" id="carousel-javascript"></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window-javascript"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window-javascript"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-datascience"
+              role="tabpanel"
+              aria-labelledby="pills-datascience-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>Lead data-driven decisions with Data Science</h2>
+                <p>
+                  Data science application is an in-demand skill in many
+                  industries worldwide — including finance, transportation,
+                  education, manufacturing, human resources, and banking.
+                  Explore data science courses with Python, statistics, machine
+                  learning, and more to grow your knowledge. Get data science
+                  training if you’re into research, statistics,...
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body">Explore Data Science</span></a
+                  >
+                </div>
+              </header>
+              <div class="datascience">
+                <div
+                  id="slide-window-datascience"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div class="carousel-inner" id="carousel-datascience"></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window-datascience"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window-datascience"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-awscertification"
+              role="tabpanel"
+              aria-labelledby="pills-awscertification-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>
+                  Become an expert in cloud computing with AWS Certification
+                </h2>
+                <p>
+                  Prep for your AWS certification with an AWS course on Udemy.
+                  Learn the fundamentals of AWS such as working with a
+                  serverless platform, the various frameworks, security and
+                  more. With these courses, you’ll build the valuable skills you
+                  need to implement cloud initiatives — and open up new career
+                  opportunities. If you want to...
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body"
+                      >Explore AWS Certification</span
+                    ></a
+                  >
+                </div>
+              </header>
+              <div class="awscertification">
+                <div
+                  id="slide-window-awscertification"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div
+                    class="carousel-inner"
+                    id="carousel-awscertification"
+                  ></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window-awscertification"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window-awscertification"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-drawing"
+              role="tabpanel"
+              aria-labelledby="pills-drawing-tab"
+            >
+              <header class="courseexplore-header">
+                <h2>Expand your creative skillset with Drawing</h2>
+                <p>
+                  Want to start drawing for fun or take your craft to the next
+                  level? Explore our online drawing classes and learn pencil
+                  drawing, figure drawing, cartoon drawing, character drawing
+                  for cartoons and anime, illustration, sketching, shading and
+                  more. Take an overview course on the fundamentals of drawing
+                  or zero in on an area...
+                </p>
+                <div class="explorepython-box">
+                  <a href="#" class="link-explorepython"
+                    ><span class="text-nav-body">Explore Drawing</span></a
+                  >
+                </div>
+              </header>
+              <div class="drawing">
+                <div
+                  id="slide-window-drawing"
+                  class="carousel slide"
+                  data-interval="false"
+                >
+                  <div class="carousel-inner" id="carousel-drawing"></div>
+                  <div class="fix-position">
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#slide-window"
+                      data-bs-slide="prev"
+                      id="prev-button"
+                    >
+                      <span>
+                        <img
+                          src="images/Arrow-icon-courses-left.png"
+                          alt="go-left"
+                      /></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#slide-window-drawing"
+                      data-bs-slide="next"
+                      id="next-button"
+                    >
+                      <span
+                        ><img
+                          src="images/Arrow-icon-courses-right.png"
+                          alt="go-right"
+                      /></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      <div class="top-categories">
+        <h3>Top categories</h3>
+        <div class="container">
+          <div class="row row-cols-xxl-4">
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-business-v2.jpg"
+                  alt="lohp-category-business"
+                />
+                <figcaption>Business</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-design-v2.jpg"
+                  alt="lohp-category-design"
+                />
+                <figcaption>Design</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-development-v2.jpg"
+                  alt="lohp-category-development"
+                />
+                <figcaption>Development</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-it-and-software-v2.jpg"
+                  alt="lohp-category-it-and-software"
+                />
+                <figcaption>It and Software</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-marketing-v2.jpg"
+                  alt="lohp-category-marketing"
+                />
+                <figcaption>Marketing</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-music-v2.jpg"
+                  alt="lohp-category-music"
+                />
+                <figcaption>Music</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-personal-development-v2.jpg"
+                  alt="lohp-category-personal-development"
+                />
+                <figcaption>Personal Development-</figcaption>
+              </figure>
+            </div>
+            <div class="col">
+              <figure class="fig-card">
+                <img
+                  src="images/lohp-category-photography-v2.jpg"
+                  alt="lohp-category-personal-photography"
+                />
+                <figcaption>Photography</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
   <script type="module" src="index.js"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"
+  ></script>
 </html>
