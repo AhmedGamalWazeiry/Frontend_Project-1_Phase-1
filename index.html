@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
     <!-- TODO: Create the header of the all page - the first section on the page   -->
 
@@ -26,14 +27,14 @@
           >
         </div>
 
-        <form class="search-bar">
+        <form id="fo" class="search-bar">
           <button type="submit">
             <i class="fa fa-search" aria-hidden="true" id="search-button"></i>
           </button>
           <input
             type="text"
             placeholder="Search for anything"
-            id="search-box"
+            class="search-box"
           />
         </form>
 
@@ -152,106 +153,27 @@
           </div>
 
           <div class="courses-list">
-            <div class="course">
-              <img src="images/Course-1.jpg" alt="Course-1" />
-              <h4>Learn Python: The Complete Python Programming Course</h4>
-              <p class="author">Avinash Jain, The Codex</p>
-              <div class="rating">
-                <span class="n-rate">4.4</span>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i
-                  class="fa fa-star-half-empty"
-                  aria-hidden="true"
-                  id="search-star"
-                ></i>
-                <span class="nthpeople">(2,916)</span>
-                <h4 class="price">E£679.99</h4>
+            <template id="course-temp">
+              <div class="course">
+                <img />
+                <h4 class="title"></h4>
+                <p class="author"></p>
+                <div class="rating-box">
+                  <span class="rating"></span>
+                  <template id="full-star-temp">
+                    <i class="fa fa-star"></i
+                  ></template>
+                  <template id="half-star-temp">
+                    <i class="fa fa-star-half-empty"></i
+                  ></template>
+                  <template id="empty-star-temp">
+                    <i class="fa fa-star-o"></i
+                  ></template>
+                  <span class="people"></span>
+                  <h4 class="price"></h4>
+                </div>
               </div>
-            </div>
-
-            <div class="course">
-              <img src="images/Course-2.jpg" alt="Course-2" />
-              <h4>Learning Python for Data Analysis and Visualization</h4>
-              <p class="author">Jose Portiila</p>
-              <div class="rating">
-                <span class="n-rate">4.4</span>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i
-                  class="fa fa-star-half-empty"
-                  aria-hidden="true"
-                  id="search-star"
-                ></i>
-                <span class="nthpeople">(17,984)</span>
-                <h4 class="price">E£679.99</h4>
-                <div>Bestseller</div>
-              </div>
-            </div>
-
-            <div class="course">
-              <img src="images/Course-4.jpg" alt="Course-4" />
-              <h4>Learn Python: Python for Beginners</h4>
-              <p class="author">Abrir Hussain</p>
-              <div class="rating">
-                <span class="n-rate">4.4</span>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i
-                  class="fa fa-star-half-empty"
-                  aria-hidden="true"
-                  id="search-star"
-                ></i>
-                <span class="nthpeople">(2,766)</span>
-                <h4 class="price">E£319.99</h4>
-              </div>
-            </div>
-
-            <div class="course">
-              <img src="images/Course-5.jpg" alt="Course-5" />
-              <h4>Python Beyond the Basics - Object-Oriented Programming</h4>
-              <p class="author">Infinite Skills</p>
-              <div class="rating">
-                <span class="n-rate">4.4</span>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i
-                  class="fa fa-star-half-empty"
-                  aria-hidden="true"
-                  id="search-star"
-                ></i>
-                <span class="nthpeople">(2,929)</span>
-                <h4 class="price">E£519.99</h4>
-              </div>
-            </div>
-
-            <div class="course">
-              <img src="images/Course-8.jpg" alt="Course-5" />
-              <h4>Python Beyond the Basics - Object-Oriented Programming</h4>
-              <p class="author">Ardit Sulce</p>
-              <div class="rating">
-                <span class="n-rate">4.4</span>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i class="fa fa-star" aria-hidden="true" id="search-star"></i>
-                <i
-                  class="fa fa-star-half-empty"
-                  aria-hidden="true"
-                  id="search-star"
-                ></i>
-                <span class="nthpeople">(9,246)</span>
-                <h4 class="price">E£549.99</h4>
-              </div>
-            </div>
+            </template>
           </div>
 
           <div class="load-courses-down">
@@ -261,4 +183,5 @@
       </section>
     </main>
   </body>
+  <script type="module" src="index.js"></script>
 </html>

@@ -269,21 +269,31 @@ body {
   display: flex;
   flex-direction: column;
   width: 19%;
-  min-width: 200px;
-  padding: 20px 10px 20px 0;
+  min-width: 192px;
+  padding: 20px 12px 20px 0;
 }
 .courses-list h4 {
   position: relative;
   bottom: 10px;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.rating i,
-.n-rate {
+.rating-box i {
   position: relative;
   bottom: 20px;
   color: #df941f;
   font-size: small;
 }
-.rating div {
+.rating {
+  position: relative;
+  margin-right: 5px;
+  bottom: 20px;
+  color: #df941f;
+  font-size: small;
+}
+.rating-box div {
   position: relative;
   bottom: 40px;
   width: 80px;
@@ -291,12 +301,12 @@ body {
   text-align: center;
   background: gold;
 }
-.rating h4 {
+.rating-box h4 {
   position: relative;
   bottom: 30px;
   color: black;
 }
-.nthpeople {
+.people {
   position: relative;
   bottom: 20px;
   color: gray;
@@ -308,6 +318,9 @@ body {
   color: gray;
   font-size: small;
   margin: 0px;
+}
+.hide {
+  display: none;
 }
 
 @media screen and (max-width: 1475px) {
@@ -350,8 +363,7 @@ body {
   .link-login,
   .link-signup,
   .link-language,
-  .nav-courses ul li:nth-child(4),
-  .courses-list div:not(:first-child) {
+  .nav-courses ul li:nth-child(4) {
     display: none;
   }
   .link-cart {
@@ -432,12 +444,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 93%;
+    height: 100%;
   }
-  .course {
-    display: flex;
-    position: relative;
-  }
+
   .load-courses-up,
   .load-courses-down {
     height: 7%;
