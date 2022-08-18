@@ -384,14 +384,16 @@ body {
   position: relative;
   right: 16px;
 }
-.fig-card img {
-  transition: transform 0.5s;
-}
+
 .fig-card figcaption {
   margin-top: 12px;
   font-weight: bold;
 }
-
+.fig-card img {
+  display: flex;
+  transition: transform 0.5s;
+  width: 100%;
+}
 .fig-card img:hover {
   transform: scale(1.11);
 }
@@ -550,7 +552,7 @@ body {
   }
   .top-categories .container {
     position: relative;
-    left: 85px;
+    left: 8px;
   }
 }
 
@@ -562,7 +564,7 @@ body {
 @media screen and (max-width: 671px) {
   .top-categories h3 {
     position: relative;
-    left: 80px;
+    left: 40px;
   }
   .top-categories .container {
     position: relative;
