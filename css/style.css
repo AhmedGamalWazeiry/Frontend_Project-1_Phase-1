@@ -220,6 +220,7 @@ body {
   flex-direction: column;
   width: 19%;
   min-width: 170px;
+  max-width: 300px;
 }
 .course h4 {
   font-size: 17px;

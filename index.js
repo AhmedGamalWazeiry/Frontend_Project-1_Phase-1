@@ -7,6 +7,7 @@ import {
 } from "./modules/helper-functions.js";
 
 const courseTemplate = document.querySelector("#course-temp");
+const form = document.getElementsByClassName("search-bar")[0];
 const matchFourCourses = window.matchMedia("(max-width: 1200px)");
 const matchThreeCourses = window.matchMedia("(max-width: 1080px)");
 const matchTwoCourses = window.matchMedia("(max-width: 850px)");
@@ -14,6 +15,7 @@ const matchOneCourses = window.matchMedia("(max-width: 740px)");
 const tapsNodes = document.querySelectorAll("#pills-tab li");
 const tapsNodesArray = Array.from(tapsNodes);
 const mapCourses = new Map();
+let textserach = "";
 let allCourses = [];
 let tabsCourses = [
   "python",
@@ -30,17 +32,37 @@ const matchesScreen = [
   matchTwoCourses,
   matchOneCourses,
 ];
-
-tabsCourses.forEach((tab) => {
-  tab = applyTap(tab);
-  mapCourses.set(tab, []);
-});
-
-tapsNodesArray.forEach((tap) => {
-  tap.addEventListener("click", function (e) {
-    let x = tap.querySelector("button").textContent;
+function resetMapCourses() {
+  tabsCourses.forEach((tab) => {
+    tab = applyTap(tab);
+    mapCourses.set(tab, []);
   });
-});
+}
+
+form.addEventListener(
+  "submit",
+  (e) => {
+    e.preventDefault();
+    resetMapCourses();
+    textserach = document
+      .getElementsByClassName("search-box")[0]
+      .value.toLowerCase();
+    allCourses.forEach((eleSearch) => {
+      const isVisible = eleSearch.title.toLowerCase().includes(textserach);
+      if (isVisible) {
+        tabsCourses.forEach((tab) => {
+          let bol = tabsFilter(tab, eleSearch.title.toLowerCase());
+          if (bol) {
+            tab = applyTap(tab);
+            mapCourses.get(tab).push(eleSearch.course);
+          }
+        });
+      }
+    });
+    matchAllScreens(mapCourses, tabsCourses, matchesScreen);
+  },
+  false
+);
 
 matchesScreen.forEach((screen) => {
   screen.addEventListener("change", () => {
@@ -68,7 +90,7 @@ fetch("http://localhost:3000/courses")
 
       return { title: data["title"], course: course };
     });
-
+    resetMapCourses();
     allCourses.forEach((ele) => {
       tabsCourses.forEach((tab) => {
         let bol = tabsFilter(tab, ele.title.toLowerCase());

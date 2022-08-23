@@ -119,7 +119,7 @@ function createSliding(frameCoursesNumber, tabs, mapCourses) {
     }
 
     // If the last frame is incomplete, Courses in the first frame will be added.
-    if (framesNumber - 1 != 0) {
+    if (framesNumber - 1 > 0) {
       const lastFrame = getCarouselInner.querySelector(
         "#f" + (framesNumber - 1)
       );
