@@ -10,8 +10,8 @@ Steps to run the project
 
 4 - in the terminal in vscode run these commands in order
 
-    -npm install -g json-server
+-npm install -g json-server
 
-    -npx json-server --watch database/db.json
+-npx json-server --watch database/db.json
 
 5 - Now everything is fine ,open index.html.

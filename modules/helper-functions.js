@@ -48,18 +48,92 @@ function set_emptyStar(course, ratingBox, value) {
   }
 }
 
-function show_OneItem(changer, courses, textserach) {
-  let bool = 0;
-  courses.forEach((ele) => {
-    const isvisible = ele.title.toLowerCase().includes(textserach);
-    if (isvisible) {
-      if (!bool) {
-        bool = 1;
-      } else {
-        ele.course.classList.toggle("hide", !changer);
+function applyTap(tab) {
+  const whiteSpace = /\s/g;
+  tab = tab.replace(whiteSpace, "");
+  if (tab === "aws") tab += "certification";
+  return tab;
+}
+function matchAllScreens(mapCourses, tabs, ...screen) {
+  if (screen[0][3].matches) {
+    createSliding(1, tabs, mapCourses);
+  } else if (screen[0][2].matches) {
+    createSliding(2, tabs, mapCourses);
+  } else if (screen[0][1].matches) {
+    createSliding(3, tabs, mapCourses);
+  } else if (screen[0][0].matches) {
+    createSliding(4, tabs, mapCourses);
+  } else {
+    createSliding(5, tabs, mapCourses);
+  }
+}
+function tabsFilter(filter, text) {
+  const isTrue = text.includes(filter);
+  return isTrue;
+}
+
+function createSliding(frameCoursesNumber, tabs, mapCourses) {
+  tabs.forEach((tab) => {
+    tab = applyTap(tab);
+
+    const allTabCourses = mapCourses.get(tab);
+
+    // Create div carousel for specific tab
+    const getCarouselInner_Id = "#carousel-" + tab;
+    const getCarouselInner = document.querySelector(getCarouselInner_Id);
+
+    // Calculate the number of frames.
+    const getCarouselInner_Length = getCarouselInner.children.length;
+
+    const framesNumber = Math.ceil(allTabCourses.length / frameCoursesNumber);
+
+    // Remove all old frames;
+    for (let i = 0; i < getCarouselInner_Length; i++) {
+      const removeframe = getCarouselInner.querySelector("#f" + i);
+      getCarouselInner.removeChild(removeframe);
+    }
+
+    // Create new frames and set active frame.
+
+    for (let i = 0; i < framesNumber; i++) {
+      const newFrame = document.createElement("div");
+      newFrame.id = "f" + i;
+      if (i == 0) {
+        newFrame.className = "carousel-item active row";
+      } else newFrame.className = "carousel-item row";
+      getCarouselInner.append(newFrame);
+    }
+
+    // Add courses to frames.
+    let frameID = -1;
+    for (let i = 0; i < allTabCourses.length; i++) {
+      const isFalse = i % frameCoursesNumber;
+      if (!isFalse) {
+        frameID++;
       }
+      const getFrame = getCarouselInner.querySelector("#f" + frameID);
+      getFrame.append(allTabCourses[i]);
+    }
+
+    // If the last frame is incomplete, Courses in the first frame will be added.
+    if (framesNumber - 1 > 0) {
+      const lastFrame = getCarouselInner.querySelector(
+        "#f" + (framesNumber - 1)
+      );
+      rollCourses(lastFrame, frameCoursesNumber, allTabCourses);
     }
   });
+}
+
+function rollCourses(lastFrame, frameCoursesNumber, allTabCourses) {
+  let lastFrameCourses = lastFrame.children.length;
+  let courseFirstframe = 0;
+  while (lastFrameCourses < frameCoursesNumber) {
+    lastFrameCourses++;
+    const cloneCourse = allTabCourses[courseFirstframe].cloneNode(true);
+    lastFrame.append(cloneCourse);
+    courseFirstframe++;
+  }
 }
 
 export {
@@ -68,5 +142,8 @@ export {
   set_FullStar,
   set_emptyStar,
   set_halfStar,
-  show_OneItem,
+  matchAllScreens,
+  applyTap,
+  tabsFilter,
+  rollCourses,
 };
