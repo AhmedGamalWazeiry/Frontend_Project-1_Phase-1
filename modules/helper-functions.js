@@ -49,7 +49,8 @@ function set_emptyStar(course, ratingBox, value) {
 }
 
 function applyTap(tab) {
-  tab = tab.replace(/\s/g, "");
+  const whiteSpace = /\s/g;
+  tab = tab.replace(whiteSpace, "");
   if (tab === "aws") tab += "certification";
   return tab;
 }
@@ -67,8 +68,8 @@ function matchAllScreens(mapCourses, tabs, ...screen) {
   }
 }
 function tabsFilter(filter, text) {
-  const istrue = text.includes(filter);
-  return istrue;
+  const isTrue = text.includes(filter);
+  return isTrue;
 }
 
 function createSliding(frameCoursesNumber, tabs, mapCourses) {
@@ -81,10 +82,9 @@ function createSliding(frameCoursesNumber, tabs, mapCourses) {
     const getCarouselInner_Id = "#carousel-" + tab;
     const getCarouselInner = document.querySelector(getCarouselInner_Id);
 
-    const activeFrame = getCarouselInner.querySelector(".active");
-
     // Calculate the number of frames.
     const getCarouselInner_Length = getCarouselInner.children.length;
+
     const framesNumber = Math.ceil(allTabCourses.length / frameCoursesNumber);
 
     // Remove all old frames;
@@ -94,14 +94,11 @@ function createSliding(frameCoursesNumber, tabs, mapCourses) {
     }
 
     // Create new frames and set active frame.
-    let Found_Active_Frame = 1;
+
     for (let i = 0; i < framesNumber; i++) {
       const newFrame = document.createElement("div");
       newFrame.id = "f" + i;
-      if (activeFrame != undefined && newFrame.id == activeFrame.id) {
-        Found_Active_Frame = 0;
-        newFrame.className = "carousel-item active row";
-      } else if (i == framesNumber - 1 && Found_Active_Frame) {
+      if (i == 0) {
         newFrame.className = "carousel-item active row";
       } else newFrame.className = "carousel-item row";
       getCarouselInner.append(newFrame);
